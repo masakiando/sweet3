@@ -1,0 +1,29 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+<% if @welcome.present? %>
+<table class="list">
+  <tr>
+    <th>生産番号</th>
+    <th>製造番号</th>
+    <th>購入日</th>
+    <th>修理番号</th>
+    <th>停止フラグ</th>
+    <th>現在場所</th>
+    <th>画像</th>
+  </tr>
+  <% @welcome.each do |w| %>
+  <tr>
+    <td style="text-align: right">
+        <%= w.serial_number %></td>
+    <td><%= w.product_number %></td>
+    <td><%= w.purchase_date %></td>
+    <td><%= w.repair_number %></td>
+    <td><%= w.suspended %></td>
+    <td><%= w.station %></td>
+    <td><%= w.data %></td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p>情報がありません。</p>
+<% end %>
